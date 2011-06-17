@@ -1,15 +1,12 @@
-<head>
-  <script src="js/lib/jquery-1.6.1.min.js"></script>
-  <script src="js/lib/underscore.js"></script>
-  <script src="https://raw.github.com/benjaminjackman/Template44/master/lib/coffee/1.1.1/extras/coffee-script.js"></script>
-  <script src="https://raw.github.com/benjaminjackman/Template44/master/template44.js"></script>
-  <link rel="stylesheet" type="text/css" href="css/main.css" />
-  <link rel="shortcut icon" href="documentation/images/favicon.ico" /> 
-</head>
-<body>
-  <!-- the body template -->
-  <script type="text/coffeescript">
-  </script>
-  <script type="text/coffeescript">
-  </script>
-</body>
+<head><title>Template44</title><script src="js/lib/jquery-1.6.1.min.js"></script><script src="js/lib/underscore.js"></script><script src="https://raw.github.com/benjaminjackman/Template44/master/lib/coffee/1.1.1/extras/coffee-script.js"></script><script src="https://raw.github.com/benjaminjackman/Template44/master/template44.js"></script><link rel="stylesheet" type="text/css" href="css/main.css"><link rel="shortcut icon" href="images/favicon.ico"></head><body><div id="Content"><h1>Template44 - A CoffeeScript Templating Library</h1><h2 id="Description">Template44 Documentation</h2>Template44 aims to make writing HTML code in CoffeScript a lot easier.
+For better or worse, a lot of coders will embed html within herestrings 
+(the multi-line strings that the language provides). 
+While nice for getting things off the ground, html is pretty verbose, having
+to write every tag twice, and it has no support for factoring out common patterns
+with shorter forms. <p></p>Enter Template44<p></p><a href="https://github.com/benjaminjackman/Template44">Project Page on GitHub</a><h3 id="MyFirstTemplate">My First Template</h3>Template44 elements can quickly be given ids with #some-id, 
+or classes with .some-css-class.<p></p><pre class="coffeecode">#A Very Simple Hello World Template
+myFirstTemplate = Template44 ($$) ->
+  $$ 'div#Hello.red', {}, ->
+    $$ '', "Hello World!"</pre><p></p>When this is run:<p></p><pre class="coffeecode">myFirstTemplate()</pre><p></p>Will Produce: <p></p><pre class="htmlcode"><div id="Hello" class="red">
+  Hello World!
+</div></pre><h3 id="CallsAndMethods">$$ Calls and Methods</h3>In this section $$ is shorthand for the name of the parameter in the function passed to Template44 (<code>myTemplate = Template44 ($$) -> ...</code>)<p></p><h4>Calls:</h4><p></p></div></body>
