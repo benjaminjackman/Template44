@@ -2,7 +2,7 @@
 
 COFFEE=lib/coffee/default/bin/coffee
 MASTER=$HOME/dev/Template44/master/
-GHPAGE=$HOME/dev/Template44/ghpage/
+GHPAGE=$HOME/dev/Template44/gh-page/
 
 cd $MASTER
 $COFFEE node-renderer.coffee > $GHPAGE/index.html
