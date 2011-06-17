@@ -42,7 +42,8 @@ is used. This allows for a fill in the blanks styles and helps with reuse.
 $$ Calls and Methods
 --------------------
 In this section $$ is shorthand for the name of the parameter in the function passed to Template44
-For example in the call <code>myTemplate = Template44 ($$) -> ...</code>
+(<code>myTemplate = Template44 ($$) -> ...</code>)
+
 
 Calls:
 
