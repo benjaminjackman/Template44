@@ -20,7 +20,7 @@ The following code:
     #A Very simple Hello World Template
     #will create a method helloTemplate
     helloTemplate = Template44 ($$) ->
-      $$ 'div#Hello.red, {}, ->
+      $$ 'div#Hello.red', {}, ->
         $$.txt "Hello World!"
 
 When this is run:
