@@ -44,7 +44,7 @@ docs.myFirstTemplate = $$$ ($$) ->
     or classes with .some-css-class.
     """
   $$ "p"
-  $$ "code", 
+  $$ "pre", 
     '''
     #A Very simple Hello World Template
     #will create a method helloTemplate
@@ -52,7 +52,6 @@ docs.myFirstTemplate = $$$ ($$) ->
       $$ 'div#Hello.red', {}, ->
         $$.txt "Hello World!"
     '''
-  
   
 docs.callsAndMethods = $$$ ($$) ->
   

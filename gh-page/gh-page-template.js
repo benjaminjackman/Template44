@@ -31,7 +31,7 @@
   docs.myFirstTemplate = $$$(function($$) {
     $$.txt("Template44 elements can quickly be given ids with #some-id, \nor classes with .some-css-class.");
     $$("p");
-    return $$("code", '#A Very simple Hello World Template\n#will create a method helloTemplate\nhelloTemplate = Template44 ($$) ->\n  $$ \'div#Hello.red\', {}, ->\n    $$.txt "Hello World!"');
+    return $$("pre", '#A Very simple Hello World Template\n#will create a method helloTemplate\nhelloTemplate = Template44 ($$) ->\n  $$ \'div#Hello.red\', {}, ->\n    $$.txt "Hello World!"');
   });
   docs.callsAndMethods = $$$(function($$) {});
   GHPAGE = {};
