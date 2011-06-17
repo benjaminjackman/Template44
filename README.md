@@ -22,7 +22,7 @@ The following code:
       $$ 'div#Hello.red, {}, ->
         $$.txt "Hello World!"
 
-When this code is run:
+When this is run:
 
     helloTemplate()
 
