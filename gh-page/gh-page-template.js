@@ -8,5 +8,5 @@
   GHPAGE = {};
   GHPAGE.body = body;
   root = window || exports;
-  root.GHPAGE = new GHPage();
+  root.GHPAGE = GHPAGE;
 }).call(this);

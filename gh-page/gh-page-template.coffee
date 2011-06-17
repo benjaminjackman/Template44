@@ -10,4 +10,4 @@ body = Template44 ($$) ->
 GHPAGE = {}
 GHPAGE.body = body
 root = window or exports
-root.GHPAGE = new GHPage()
+root.GHPAGE = GHPAGE
