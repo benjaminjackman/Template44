@@ -1,8 +1,8 @@
 
 
 body = Template44 ($$) ->
-  $$ 'h1', {}, () ->
-    $$.txt "Hello World!"
+  $$ 'div#Content', {}, () ->
+    $$ 'h1', "Hello World!"
     $$ 'p'
     $$ editBox
     $$ 'p'

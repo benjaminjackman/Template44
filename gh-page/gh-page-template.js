@@ -1,8 +1,8 @@
 (function() {
   var GHPAGE, body, editBox, root;
   body = Template44(function($$) {
-    return $$('h1', {}, function() {
-      $$.txt("Hello World!");
+    return $$('div#Content', {}, function() {
+      $$('h1', "Hello World!");
       $$('p');
       $$(editBox);
       $$('p');
