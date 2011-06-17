@@ -1,7 +1,12 @@
 ###
-#Helper for importing when we are in node land
-#Begin Node / Browser Require Code
+Template44 - a Coffeescript Templating Library
+Version: Alpha
+Copyright Ben Jackman 2011
+Released under the MIT License
 ###
+
+#Helper for importing when we are in node land
+#Node / Browser Require Code
 $ = if exports? then require('jquery') else $
 _ = if exports? then require('underscore') else _
 
@@ -32,8 +37,10 @@ editBox = $$$ ($$) ->
   $$ 'textarea#EntryBox'
   
 docs = $$$ ($$) ->
-  $$ 'h2#Description', 'Template44 Documentation'
+  $$ 'h2#Description', 'Documentation'
   $$ docs.description
+  $$ 'h3#Motivation', 'Motivation'
+  $$ docs.motivation
   $$ 'h3#MyFirstTemplate', 'My First Template'
   $$ docs.myFirstTemplate
   $$ 'h3#CallsAndMethods', '$$ Calls and Methods'
@@ -41,17 +48,26 @@ docs = $$$ ($$) ->
   
 docs.description = $$$ ($$) ->
   $$ '', '''
-    Template44 aims to make writing HTML code in CoffeScript a lot easier.
+    Template44 is a CoffeeScript DSL for HTML templates that supports
+    server side and client side rendering.
+    '''
+  $$ 'p'
+  $$ '', 'Template44 is open-source, '
+  $$ 'a', {href : 'https://github.com/benjaminjackman/Template44'}, 'hosted '
+  $$ '', 'on GitHub, and uses the MIT License (just like coffeescript).'
+
+docs.motivation = $$$ ($$) ->
+  $$ '', '''
     For better or worse, a lot of coders will embed html within herestrings 
     (the multi-line strings that the language provides). 
-    While nice for getting things off the ground, html is pretty verbose, having
-    to write every tag twice, and it has no support for factoring out common patterns
-    with shorter forms. 
+    While nice for getting things off the ground. It can be error prone if things aren't
+    properly escaped. On top of that html can be fairly verbose, and doesn't have the
+    capability to eliminate copy pasta.
     '''
   $$ 'p'
   $$ '', 'Enter Template44'
   $$ 'p'
-  $$ 'a', {href : 'https://github.com/benjaminjackman/Template44'}, 'Project Page on GitHub'
+
   
   
 docs.myFirstTemplate = $$$ ($$) ->

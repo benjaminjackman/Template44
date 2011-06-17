@@ -3,12 +3,13 @@
   Template44 - a Coffeescript Templating Library
   Version: Alpha
   Copyright Ben Jackman 2011
-  This work is in the Public Domain
-  
+  Released under the MIT License
   currently requires:
-  underscore.js (though that's easy enough to remove)
-  */  var TStack, Template44, createRecorder, explodeAttrs, explodeTag, parseTag, render, root;
+  underscore.js (though that can/will be removed in the future)
+  */  var $, DomDocumentNodeBuilder, TStack, Template44, createRecorder, explodeAttrs, explodeTag, parseTag, render, root, _;
   var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; }, __slice = Array.prototype.slice;
+  $ = typeof exports !== "undefined" && exports !== null ? require('jquery') : $;
+  _ = typeof exports !== "undefined" && exports !== null ? require('underscore') : _;
   TStack = (function() {
     function TStack() {
       this.currentNode = {
@@ -71,17 +72,28 @@
     };
     return TStack;
   })();
-  render = function(node, parentElement) {
+  DomDocumentNodeBuilder = {
+    createTextNode: function(text) {
+      return document.createTextNode(text);
+    },
+    createElement: function(tag) {
+      return document.createTextNode(tag);
+    }
+  };
+  render = function(node, parentElement, nodeBuilder) {
     var c, el, k, v, _i, _len, _ref, _ref2;
+    if (nodeBuilder == null) {
+      nodeBuilder = DomDocumentNodeBuilder;
+    }
     el = null;
     if (node.type === "text") {
-      el = document.createTextNode(node.value);
+      el = nodeBuilder.createTextNode(node.value);
     } else if (node.type === "jQuery") {
       el = node.value;
     } else if (node.type === "elem") {
       el = node.value;
     } else if (node.type === "node") {
-      el = document.createElement(node.tag);
+      el = nodeBuilder.createElement(node.tag);
       _ref = node.attrs;
       for (k in _ref) {
         v = _ref[k];
@@ -90,7 +102,7 @@
       _ref2 = node.children;
       for (_i = 0, _len = _ref2.length; _i < _len; _i++) {
         c = _ref2[_i];
-        render(c, el);
+        render(c, el, nodeBuilder);
       }
     }
     if (parentElement != null) {
@@ -200,7 +212,7 @@
     return recorder;
   };
   Template44 = function(templateBuilder) {
-    var build, ret;
+    var build, renderWrap, ret;
     build = function(context, options) {
       var r, stack;
       stack = new TStack();
@@ -208,19 +220,26 @@
       templateBuilder.apply(context, [r]);
       return stack;
     };
+    renderWrap = function(root, options) {
+      if ((options != null ? options.document : void 0) != null) {
+        return render(root, null, options.document);
+      } else {
+        return render(root);
+      }
+    };
     ret = function(context, options) {
       var l, root;
       root = build(context, options).rootElems();
       l = root.length;
       if (l === 1) {
-        render(root[0]);
+        renderWrap(root[0], options);
       } else if (l === 0) {
         null;
       } else {
 
       }
       return _(build(context, options).rootElems()).map(function(x) {
-        return render(x);
+        return renderWrap(x, options);
       });
     };
     ret.element = function(context, options) {
@@ -228,7 +247,7 @@
       root = build(context, options).rootElems();
       l = root.length;
       if (l === 1) {
-        return render(root[0]);
+        return renderWrap(root[0], options);
       } else if (l === 0) {
         return null;
       } else {
@@ -237,7 +256,7 @@
     };
     ret.array = function(context, options) {
       return _(build(context, options).rootElems()).map(function(x) {
-        return render(x);
+        return renderWrap(x, options);
       });
     };
     ret.stack = function(context, options) {
@@ -245,6 +264,6 @@
     };
     return ret;
   };
-  root = typeof window !== "undefined" && window !== null ? window : exports;
+  root = typeof exports !== "undefined" && exports !== null ? exports : window;
   root.Template44 = Template44;
 }).call(this);

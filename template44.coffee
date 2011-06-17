@@ -2,10 +2,9 @@
 Template44 - a Coffeescript Templating Library
 Version: Alpha
 Copyright Ben Jackman 2011
-This work is in the Public Domain
-
+Released under the MIT License
 currently requires:
-underscore.js (though that's easy enough to remove)
+underscore.js (though that can/will be removed in the future)
 ###
 
 #Required stuff useful for node
