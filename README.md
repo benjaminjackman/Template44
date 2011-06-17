@@ -1,13 +1,14 @@
 Template44 - a CoffeeScript Templating Library
 ==============================================
 
-Template44 aims to make writing HTML code with scripts a lot easier.
-In CoffeeScript, for better or worse, a lot of coders will embed html 
-within herestrings (the multi-line strings that the language provides). 
-While nice for getting things off the ground, html code can be pretty 
-verbose and error prone to write, and it has no capability to eliminate 
-'copy-pasta' easily.
+Template44 aims to make writing HTML code in CoffeScript a lot easier.
+For better or worse, a lot of coders will embed html within herestrings 
+(the multi-line strings that the language provides). 
+While nice for getting things off the ground, html is pretty verbose, having
+to write every tag twice, and it has no support for factoring out common patterns
+with shorter forms. 
 
+Enter Template44
 
 Features
 --------
