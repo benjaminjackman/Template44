@@ -11,14 +11,26 @@ verbose and error prone to write, and it has no capability to eliminate
 
 Features
 --------
-Template44 supports a shortened syntax for given an id to a particular 
-element (with #id-name) as well as tacking on multiple classes to that
-element (with .cls-name). The need to have to close out tags is handled
-automatically thanks to the significant whitespace rules of CoffeeScript.
+Template44 elements can quickly be given ids with #id-name, or classes with .cls-name . 
+There is no need to close out tags
 
+The following code: 
+
+    #A Very simple Hello World Template
+    #will create a method helloTemplate
     helloTemplate = Template44 ($$) ->
       $$ 'div#Hello.red, {}, ->
         $$.txt "Hello World!"
+
+When this code is run:
+
+    helloTemplate()
+
+Will Produce:
+
+    <div id="Hello" class="red">
+      Hello World!
+    </div>
 
 Templates can have variables defined that can be set when the the template
 is used. This allows for a fill in the blanks styles and helps with reuse.
