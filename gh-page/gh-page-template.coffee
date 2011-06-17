@@ -3,6 +3,7 @@
 body = Template44 ($$) ->
   $$ 'h1', {}, () ->
     $$.txt "Hello World!"
+    $$ 'p'
     $$ editBox
   
 editBox = Template44 ($$) ->

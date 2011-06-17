@@ -3,6 +3,7 @@
   body = Template44(function($$) {
     return $$('h1', {}, function() {
       $$.txt("Hello World!");
+      $$('p');
       return $$(editBox);
     });
   });
