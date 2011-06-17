@@ -2,4 +2,4 @@
 
 COFFEE=./lib/coffee/default/bin/coffee
 
-$COFFEE Template44.js
+$COFFEE -c template44.coffee
