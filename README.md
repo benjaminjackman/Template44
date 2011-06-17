@@ -45,9 +45,8 @@ In this section $$ is shorthand for the name of the parameter in the function pa
 (<code>myTemplate = Template44 ($$) -> ...</code>)
 
 
-Calls:
-
-$$(String, [Optional Attributes Object], [Optional Child Element or Text])
+<h3>Calls:<h3>
+<h4>$$(String, [Optional Attributes Object], [Optional Child Element or Text])</h4>
 
 When the first parameter called on $$ is a String, then Template44 view it as an element tag.
 If you included #ElementName .ClassName(s) then those will be inserted as attributes in the element that is
@@ -60,7 +59,11 @@ If a String is passed as the last parameter to the $$ call
 
 If instead you wish to 
 
-$$(Function)
+<h4>$$(Function)</h4>
+
+<h4>$$(Object)</h4>
+
+
 
 
 
