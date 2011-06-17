@@ -1,9 +1,10 @@
-Template44 - a coffeescript html templating library
+Template44 - a CoffeeScript HTML templating library
 Copyright Ben Jackman 2011
 This work is in the Public Domain
 currently requires underscore.js (though that's easy enough to remove)
 
-example usages, in coffeescript:
+
+example usages, in CoffeeScript:
 
 template = Template44 ($$) ->
   $$ 'div.indicator-sel', {value : @a}, ->
