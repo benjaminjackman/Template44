@@ -97,8 +97,8 @@
       if (node.type === "jQuery") {
         el.appendTo(parentElement);
       } else if (_.isArray(el)) {
-        _(el).each(function(el) {
-          return parentElement.appendChild(el);
+        _(el).each(function(cel) {
+          return parentElement.appendChild(cel);
         });
       } else {
         parentElement.appendChild(el);

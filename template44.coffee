@@ -66,7 +66,7 @@ render = (node, parentElement) ->
     if (node.type == "jQuery")
       el.appendTo(parentElement)
     else if (_.isArray(el))
-      _(el).each (el) -> parentElement.appendChild(el)
+      _(el).each (cel) -> parentElement.appendChild(cel)
     else
       parentElement.appendChild(el)
 
