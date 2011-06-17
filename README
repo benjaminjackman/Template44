@@ -1,0 +1,8 @@
+Build branch for Template 44
+contains scripts that perform different operations for building the project
+
+If you are planning to build Template44, or generate the project page you should setup your directory structure as follows:
+
+Template44/build
+Template44/gh-pages
+Template44/codebase
