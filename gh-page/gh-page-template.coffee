@@ -6,18 +6,18 @@ $$$ = Template44
 
 body = $$$ ($$) ->
   $$ 'div#Content', {}, ->
-    $$ 'h1', {}, 'Template44 - a CoffeeScript Templating Library'
+    $$ 'h1', {}, 'Template44 - A CoffeeScript Templating Library'
     $$ docs
   
 editBox = $$$ ($$) ->
   $$ 'textarea#EntryBox'
   
 docs = $$$ ($$) ->
-  $$ 'h1#Description', 'Template44 Documentation'
+  $$ 'h2#Description', 'Template44 Documentation'
   $$ docs.description
-  $$ 'h2#Features', 'Features'
+  $$ 'h3#Features', 'Features'
   $$ docs.features
-  $$ 'h2#CallsAndMethods', '$$ Calls and Methods'
+  $$ 'h3#CallsAndMethods', '$$ Calls and Methods'
   
 docs.description = $$$ ($$) ->
   $$.txt '''
