@@ -13,9 +13,9 @@ editBox = $$$ ($$) ->
   $$ 'textarea#EntryBox'
   
 docs = $$$ ($$) ->
-  $$ 'h1#Description' 'Template44 Documentation'
+  $$ 'h1#Description', 'Template44 Documentation'
   $$ docs.description
-  $$ 'h2#Features' 'Features'
+  $$ 'h2#Features', 'Features'
   $$ docs.features
   $$ 'h2#CallsAndMethods' '$$ Calls and Methods'
   
