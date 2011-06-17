@@ -96,6 +96,10 @@
     if (parentElement != null) {
       if (node.type === "jQuery") {
         el.appendTo(parentElement);
+      } else if (_.isArray(el)) {
+        _(el).foreach(function(el) {
+          return parentElement.appendChild(el);
+        });
       } else {
         parentElement.appendChild(el);
       }

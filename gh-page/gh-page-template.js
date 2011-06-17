@@ -3,7 +3,7 @@
   $$$ = Template44;
   body = $$$(function($$) {
     return $$('div#Content', {}, function() {
-      $$('h1', "Template44 - a CoffeeScript Templating Library");
+      $$('h1', {}, 'Template44 - a CoffeeScript Templating Library');
       return $$(docs);
     });
   });

@@ -6,7 +6,7 @@ $$$ = Template44
 
 body = $$$ ($$) ->
   $$ 'div#Content', {}, ->
-    $$ 'h1', "Template44 - a CoffeeScript Templating Library"
+    $$ 'h1', {}, 'Template44 - a CoffeeScript Templating Library'
     $$ docs
   
 editBox = $$$ ($$) ->
