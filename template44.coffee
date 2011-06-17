@@ -33,9 +33,9 @@ class TStack
   pushJQuery : (elem) -> @currentNode.children.push({"type":"jQuery", value:elem})
   
   pushElems : (elems) ->
-    doPush = (elem) -> @currentNode.children.push({"type":"elem"}, value: elem)
+    doPush = (elem) => @currentNode.children.push({"type":"elem"}, value: elem)
     if (_.isArray[elems])
-      _(elems).foreach (elem) => doPush(elem)
+      _(elems).foreach (elem) -> doPush(elem)
     else
       doPush(elems)
       
@@ -134,7 +134,7 @@ createRecorder = (stack, options, context) ->
       #in this case assume this is nested template44
       #since it was not 'applied' we need to pass in the context and options
       #used by the parent then get the node(s) produced and append it/them
-      stack.pushElems(args[0](options, context))
+      stack.pushElems(args[0](context, options))
       stack.pop()
       null
     else

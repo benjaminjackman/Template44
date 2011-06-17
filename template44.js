@@ -44,17 +44,17 @@
     };
     TStack.prototype.pushElems = function(elems) {
       var doPush;
-      doPush = function(elem) {
+      doPush = __bind(function(elem) {
         return this.currentNode.children.push({
           "type": "elem"
         }, {
           value: elem
         });
-      };
+      }, this);
       if (_.isArray[elems]) {
-        return _(elems).foreach(__bind(function(elem) {
+        return _(elems).foreach(function(elem) {
           return doPush(elem);
-        }, this));
+        });
       } else {
         return doPush(elems);
       }
@@ -175,7 +175,7 @@
         stack.pop();
         return null;
       } else if (_.isFunction(args[0])) {
-        stack.pushElems(args[0](options, context));
+        stack.pushElems(args[0](context, options));
         stack.pop();
         return null;
       } else {
