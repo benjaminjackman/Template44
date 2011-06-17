@@ -6,7 +6,7 @@
       $$('p');
       $$(editBox);
       $$('p');
-      return $$('div#RenderArea');
+      return $$('div#RenderArea', "Render Area");
     });
   });
   editBox = Template44(function($$) {

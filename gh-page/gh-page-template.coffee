@@ -6,7 +6,7 @@ body = Template44 ($$) ->
     $$ 'p'
     $$ editBox
     $$ 'p'
-    $$ 'div#RenderArea'
+    $$ 'div#RenderArea', "Render Area"
   
 editBox = Template44 ($$) ->
   $$ 'textarea#EntryBox'
