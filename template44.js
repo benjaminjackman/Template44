@@ -176,11 +176,9 @@
         return null;
       } else if (_.isFunction(args[0])) {
         stack.pushElems(args[0](context, options));
-        stack.pop();
         return null;
       } else {
         stack.pushElems(args[0]);
-        stack.pop();
         return null;
       }
     };

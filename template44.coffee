@@ -135,14 +135,12 @@ createRecorder = (stack, options, context) ->
       #since it was not 'applied' we need to pass in the context and options
       #used by the parent then get the node(s) produced and append it/them
       stack.pushElems(args[0](context, options))
-      stack.pop()
       null
     else
       #in this case we are going to assume that we have
       #an applied nested template44 that we are going to need to insert
       #in this case the result should just be directly appendable at this location
       stack.pushElems(args[0])
-      stack.pop()
       null
       
 
