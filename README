@@ -1,4 +1,4 @@
-Template44 - a coffeescript templating library
+Template44 - a coffeescript html templating library
 Copyright Ben Jackman 2011
 This work is in the Public Domain
 currently requires underscore.js (though that's easy enough to remove)
@@ -12,8 +12,8 @@ template = Template44 ($$) ->
     $$ 'br', {}, () -> ""
     $$ 'p', {}, () -> "hi mom i'm " + @b
 
-console.log(template({a : 5, b : "SO AWESOME"}),)
->
+> console.log(template({a : 5, b : "SO AWESOME"}),)
+
   <div value=​"5" class=​"indicator-sel">​
     <h1 class=​"red" id=​"the-h1">​hello world​</h1>​
     "this is some text"
@@ -28,8 +28,8 @@ bodyTempl = Template44 ($$) ->
     $$ 'h2.page-header', {}, () ->
       $$.txt "#{@companyName} Unit Tests"
 
-console.log(bodyTempl({companyName : "Cogent"}),)
->
+> console.log(bodyTempl({companyName : "Cogent"}),)
+
   <body>​
     <div id=​"main-nav">​</div>​
     <div id=​"content">​</div>​
