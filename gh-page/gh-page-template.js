@@ -1,7 +1,38 @@
 (function() {
-  var $$$, GHPAGE, body, docs, editBox, marginStrip, root;
+  var $$$, GHPAGE, body, docs, editBox, html, marginStrip, root;
+  $$$ = typeof exports !== "undefined" && exports !== null ? require() : Template44;
   marginStrip = function(txt) {};
-  $$$ = Template44;
+  html = $$$(function($$) {
+    return $$('html', function() {
+      $$('head', function() {
+        $$('title', 'Template44');
+        $$('script', {
+          src: 'js/lib/jquery-1.6.1.min.js'
+        });
+        $$('script', {
+          src: 'js/lib/underscore.js'
+        });
+        $$('script', {
+          src: 'https://raw.github.com/benjaminjackman/Template44/master/lib/coffee/1.1.1/extras/coffee-script.js'
+        });
+        $$('script', {
+          src: 'https://raw.github.com/benjaminjackman/Template44/master/template44.js'
+        });
+        $$('link', {
+          rel: 'stylesheet',
+          'type': 'text/css',
+          href: 'css/main.css'
+        });
+        return $$('link', {
+          rel: 'shortcut icon',
+          href: 'images/favicon.ico'
+        });
+      });
+      return $$('body', function() {
+        return $$(body);
+      });
+    });
+  });
   body = $$$(function($$) {
     return $$('div#Content', {}, function() {
       $$('h1', {}, 'Template44 - A CoffeeScript Templating Library');
@@ -50,6 +81,7 @@
     return $$('p');
   });
   GHPAGE = {};
+  GHPAGE.html = html;
   GHPAGE.body = body;
   root = window || exports;
   root.GHPAGE = GHPAGE;

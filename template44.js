@@ -245,6 +245,6 @@
     };
     return ret;
   };
-  root = window || exports;
+  root = typeof window !== "undefined" && window !== null ? window : exports;
   root.Template44 = Template44;
 }).call(this);

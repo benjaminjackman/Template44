@@ -1,14 +1,13 @@
+###
 #Helper for importing when we are in node land
-$$$ = if exports? then require('./template44.coffee').Template44 else Template44
-
+#Begin Node / Browser Require Code
+###
+$ = if exports? then require('jquery') else $
+_ = if exports? then require('underscore') else _
 
 #Notice here that I am setting $$$ equal to Template44
 #This is done solely to save keystrokes
-
-marginStrip = (txt) ->
-
-
-
+$$$ = if exports? then require('./template44.coffee').Template44 else Template44
 
 html = $$$ ($$) ->
   $$ 'html', ->
@@ -94,5 +93,5 @@ docs.callsAndMethods = $$$ ($$) ->
 GHPAGE = {}
 GHPAGE.html = html
 GHPAGE.body = body
-root = window ? exports
+root = exports ? window
 root.GHPAGE = GHPAGE

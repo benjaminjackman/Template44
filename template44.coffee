@@ -8,6 +8,10 @@ currently requires:
 underscore.js (though that's easy enough to remove)
 ###
 
+#Required stuff useful for node
+$ = if exports? then require('jquery') else $
+_ = if exports? then require('underscore') else _
+
 class TStack
   constructor : () ->
     @currentNode = {
@@ -48,20 +52,25 @@ class TStack
       cur = cur.parent
     cur.children
 
-render = (node, parentElement) ->
+DomDocumentNodeBuilder = {
+  createTextNode : (text) -> document.createTextNode(text)
+  createElement : (tag) -> document.createTextNode(tag)
+}
+
+render = (node, parentElement, nodeBuilder = DomDocumentNodeBuilder) ->
   el = null
   if (node.type == "text")
-    el = document.createTextNode(node.value)
+    el = nodeBuilder.createTextNode(node.value)
   else if (node.type == "jQuery")
     el = node.value
   else if (node.type == "elem")
     el = node.value
   else if (node.type == "node")
-    el = document.createElement(node.tag)
+    el = nodeBuilder.createElement(node.tag)
     for k, v of node.attrs
       el.setAttribute k, v
     for c in node.children
-      render c, el
+      render c, el, nodeBuilder
   if parentElement?
     if (node.type == "jQuery")
       el.appendTo(parentElement)
@@ -163,24 +172,31 @@ Template44 = (templateBuilder) ->
     r = createRecorder(stack, options, context)
     templateBuilder.apply(context, [r])
     stack
-    
+  
+  # Allows for render to use a different node builder
+  renderWrap = (root, options) ->
+    if options?.document?
+      render(root, null, options.document)
+    else
+      render(root)
+  
   # Returns either an array or a single element
   ret = (context, options) ->
     root = build(context, options).rootElems()
     l = root.length
     if l == 1
-      render(root[0])
+      renderWrap(root[0], options)
     else if l == 0
       null
     else
-    _(build(context, options).rootElems()).map((x)-> render(x))      
+    _(build(context, options).rootElems()).map((x)-> renderWrap(x, options))
 
   # A way to ensure, with an exception, that only one element is returned
   ret.element = (context, options) ->
     root = build(context, options).rootElems()
     l = root.length
     if l == 1
-      render(root[0])
+      renderWrap(root[0], options)
     else if l == 0
       null
     else
@@ -188,7 +204,7 @@ Template44 = (templateBuilder) ->
 
   # Always returns an array of elements, even if there is only 1
   ret.array = (context, options) ->
-    _(build(context, options).rootElems()).map((x)-> render(x))
+    _(build(context, options).rootElems()).map((x)-> renderWrap(x, options))
 
   # Helper that returns the stack without it being rendered
   ret.stack = (context, options) ->
@@ -196,7 +212,7 @@ Template44 = (templateBuilder) ->
 
   ret
 
-root = window or exports
+root = exports ? window
 
 root.Template44 = Template44
 
