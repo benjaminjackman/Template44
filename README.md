@@ -39,6 +39,30 @@ Templates can have variables defined that can be set when the the template
 is used. This allows for a fill in the blanks styles and helps with reuse.
 
 
+$$ Calls and Methods
+--------------------
+In this section $$ is shorthand for the name of the parameter in the function passed to Template44
+For example in the call <code>myTemplate = Template44 ($$) -> ...</code>
+
+Calls:
+
+$$(String, [Optional Attributes Object], [Optional Child Element or Text])
+
+When the first parameter called on $$ is a String, then Template44 view it as an element tag.
+If you included #ElementName .ClassName(s) then those will be inserted as attributes in the element that is
+created.
+
+If you wish to add additional attributes to the element that is going to be created you can include an object
+mapping attribute names to attribute values.
+
+If a String is passed as the last parameter to the $$ call 
+
+If instead you wish to 
+
+$$(Function)
+
+
+
 
 ...old...
 
