@@ -5,6 +5,8 @@ body = Template44 ($$) ->
     $$.txt "Hello World!"
     $$ 'p'
     $$ editBox
+    $$ 'p'
+    $$ 'div#RenderArea'
   
 editBox = Template44 ($$) ->
   $$ 'textarea#EntryBox'

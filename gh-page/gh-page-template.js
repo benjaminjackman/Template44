@@ -4,7 +4,9 @@
     return $$('h1', {}, function() {
       $$.txt("Hello World!");
       $$('p');
-      return $$(editBox);
+      $$(editBox);
+      $$('p');
+      return $$('div#RenderArea');
     });
   });
   editBox = Template44(function($$) {
