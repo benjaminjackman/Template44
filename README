@@ -29,11 +29,11 @@ bodyTempl = Template44 ($$) ->
     $$ 'h2.page-header', {}, () ->
       $$.txt "#{@companyName} Unit Tests"
 
-> console.log(bodyTempl({companyName : "Cogent"}),)
+> console.log(bodyTempl({companyName : "TemplateCo"}),)
 
   <body>​
     <div id=​"main-nav">​</div>​
     <div id=​"content">​</div>​
-    <h2 class=​"page-header">​Cogent Unit Tests​</h2>​
+    <h2 class=​"page-header">​TemplateCo Unit Tests​</h2>​
   </body>​
 
