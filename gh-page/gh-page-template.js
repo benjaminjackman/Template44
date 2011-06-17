@@ -31,7 +31,7 @@
   docs.myFirstTemplate = $$$(function($$) {
     $$('', 'Template44 elements can quickly be given ids with #some-id, \nor classes with .some-css-class.');
     $$('p');
-    $$('pre.coffeecode', '#A Very simple Hello World Template\nmyFirstTemplate = Template44 ($$) ->\n  $$ \'div#Hello.red\', {}, ->\n    $$ \'\', "Hello World!"');
+    $$('pre.coffeecode', '#A Very Simple Hello World Template\nmyFirstTemplate = Template44 ($$) ->\n  $$ \'div#Hello.red\', {}, ->\n    $$ \'\', "Hello World!"');
     $$('p');
     $$('', "When this is run:");
     $$('p');

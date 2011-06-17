@@ -46,7 +46,7 @@ docs.myFirstTemplate = $$$ ($$) ->
   $$ 'p'
   $$ 'pre.coffeecode', 
     '''
-    #A Very simple Hello World Template
+    #A Very Simple Hello World Template
     myFirstTemplate = Template44 ($$) ->
       $$ 'div#Hello.red', {}, ->
         $$ '', "Hello World!"
