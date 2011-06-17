@@ -1,10 +1,12 @@
 
 
-
 body = Template44 ($$) ->
   $$ 'h1', {}, () ->
     $$.txt "Hello World!"
+    $$ editBox
   
+editBox = Template44 ($$) ->
+  $$ 'textarea#EntryBox', {} ->
 
 #Exporting    
 GHPAGE = {}
