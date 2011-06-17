@@ -39,21 +39,39 @@ docs.description = $$$ ($$) ->
   
   
 docs.myFirstTemplate = $$$ ($$) ->
-  $$.txt """
+  $$.txt '''
     Template44 elements can quickly be given ids with #some-id, 
     or classes with .some-css-class.
-    """
-  $$ "p"
-  $$ "pre", 
+    '''
+  $$ 'p'
+  $$ 'pre', 
     '''
     #A Very simple Hello World Template
     #will create a method helloTemplate
-    helloTemplate = Template44 ($$) ->
+    myFirstTemplate = Template44 ($$) ->
       $$ 'div#Hello.red', {}, ->
         $$.txt "Hello World!"
     '''
+  $$ 'p'
+  $$.txt "When this is run:"
+  $$ 'p'
+  $$ 'pre', 'myFirstTemplate'
+  $$ 'p'
+  $$.txt "Will Produce: "
+  $$ 'p'
+  $$ 'pre', '''
+  <div id="Hello" class="red">
+    Hello World!
+  </div>  
+  '''
   
 docs.callsAndMethods = $$$ ($$) ->
+  $$ '', 'In this section $$ is shorthand for the name of the parameter in the function passed to Template44 ('
+  $$ 'code', 'myTemplate = Template44 ($$) -> ...'
+  $$ '', ')'
+  $$ 'p'
+  $$ 'h4', 'Calls:'
+  $$ 'p'
   
 
 #Exporting    

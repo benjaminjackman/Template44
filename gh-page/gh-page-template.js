@@ -29,11 +29,26 @@
     }, 'Project Page');
   });
   docs.myFirstTemplate = $$$(function($$) {
-    $$.txt("Template44 elements can quickly be given ids with #some-id, \nor classes with .some-css-class.");
-    $$("p");
-    return $$("pre", '#A Very simple Hello World Template\n#will create a method helloTemplate\nhelloTemplate = Template44 ($$) ->\n  $$ \'div#Hello.red\', {}, ->\n    $$.txt "Hello World!"');
+    $$.txt('Template44 elements can quickly be given ids with #some-id, \nor classes with .some-css-class.');
+    $$('p');
+    $$('pre', '#A Very simple Hello World Template\n#will create a method helloTemplate\nmyFirstTemplate = Template44 ($$) ->\n  $$ \'div#Hello.red\', {}, ->\n    $$.txt "Hello World!"');
+    $$('p');
+    $$.txt("When this is run:");
+    $$('p');
+    $$('pre', 'myFirstTemplate');
+    $$('p');
+    $$.txt("Will Produce: ");
+    $$('p');
+    return $$('pre', '<div id="Hello" class="red">\n  Hello World!\n</div>  ');
   });
-  docs.callsAndMethods = $$$(function($$) {});
+  docs.callsAndMethods = $$$(function($$) {
+    $$('', 'In this section $$ is shorthand for the name of the parameter in the function passed to Template44 (');
+    $$('code', 'myTemplate = Template44 ($$) -> ...');
+    $$('', ')');
+    $$('p');
+    $$('h4', 'Calls:');
+    return $$('p');
+  });
   GHPAGE = {};
   GHPAGE.body = body;
   root = window || exports;

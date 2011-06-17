@@ -144,7 +144,7 @@
     recorderFn = function() {
       var args, attrs, body, getAttrs, r, tag, _ref;
       args = 1 <= arguments.length ? __slice.call(arguments, 0) : [];
-      if (_.isString(args[0])) {
+      if (_.isString(args[0]) && args[0](!'')) {
         tag = explodeTag(args[0]);
         getAttrs = function(attrObj) {
           return _.extend({}, explodeAttrs(attrObj));
@@ -177,6 +177,8 @@
         }
         stack.pop();
         return null;
+      } else if (_.isString(args[0]) && args[0] === '') {
+        return recorderFn.txt(args);
       } else if (_.isFunction(args[0])) {
         stack.pushElems(args[0](context, options));
         return null;
