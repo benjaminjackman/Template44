@@ -30,19 +30,19 @@
       };
       return old.children.push(this.currentNode);
     };
-    TStack.prototype.pushText = function(text) {
+    TStack.prototype.addText = function(text) {
       return this.currentNode.children.push({
         "type": "text",
         value: text
       });
     };
-    TStack.prototype.pushJQuery = function(elem) {
+    TStack.prototype.addJQuery = function(elem) {
       return this.currentNode.children.push({
         "type": "jQuery",
         value: elem
       });
     };
-    TStack.prototype.pushElems = function(elems) {
+    TStack.prototype.addElems = function(elems) {
       var doPush;
       doPush = __bind(function(elem) {
         return this.currentNode.children.push({
@@ -170,20 +170,20 @@
         if (_.isFunction(body)) {
           r = body.apply(context);
           if (_.isString(r)) {
-            stack.pushText(r);
+            stack.addText(r);
           }
         } else if (_.isString(body)) {
-          stack.pushText(body);
+          stack.addText(body);
         }
         stack.pop();
         return null;
       } else if (_.isString(args[0]) && args[0] === '' && args.length === 2) {
-        return stack.pushText(args[1]);
+        return stack.addText(args[1]);
       } else if (_.isFunction(args[0])) {
-        stack.pushElems(args[0](context, options));
+        stack.addElems(args[0](context, options));
         return null;
       } else {
-        stack.pushElems(args[0]);
+        stack.addElems(args[0]);
         return null;
       }
     };

@@ -28,11 +28,11 @@ class TStack
     }
     old.children.push(@currentNode)
 
-  pushText : (text) -> @currentNode.children.push({"type":"text", value:text})
+  addText : (text) -> @currentNode.children.push({"type":"text", value:text})
 
-  pushJQuery : (elem) -> @currentNode.children.push({"type":"jQuery", value:elem})
+  addJQuery : (elem) -> @currentNode.children.push({"type":"jQuery", value:elem})
   
-  pushElems : (elems) ->
+  addElems : (elems) ->
     doPush = (elem) => @currentNode.children.push({"type":"elem", value: elem})
     if (_.isArray[elems])
       _(elems).each (elem) -> doPush(elem)
@@ -127,24 +127,24 @@ createRecorder = (stack, options, context) ->
       if (_.isFunction(body))
         r = body.apply(context)
         if (_.isString(r))
-          stack.pushText(r)
+          stack.addText(r)
       else if (_.isString(body))
-        stack.pushText(body)
+        stack.addText(body)
       stack.pop()
       null
     else if _.isString(args[0]) and args[0] is '' and args.length is 2
-      stack.pushText(args[1])
+      stack.addText(args[1])
     else if _.isFunction(args[0])
       #in this case assume this is nested template44
       #since it was not 'applied' we need to pass in the context and options
       #used by the parent then get the node(s) produced and append it/them
-      stack.pushElems(args[0](context, options))
+      stack.addElems(args[0](context, options))
       null
     else
       #in this case we are going to assume that we have
       #an applied nested template44 that we are going to need to insert
       #in this case the result should just be directly appendable at this location
-      stack.pushElems(args[0])
+      stack.addElems(args[0])
       null
       
 

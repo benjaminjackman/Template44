@@ -31,15 +31,15 @@
   docs.myFirstTemplate = $$$(function($$) {
     $$('', 'Template44 elements can quickly be given ids with #some-id, \nor classes with .some-css-class.');
     $$('p');
-    $$('pre', '#A Very simple Hello World Template\n#will create a method helloTemplate\nmyFirstTemplate = Template44 ($$) ->\n  $$ \'div#Hello.red\', {}, ->\n    $$ \'\', "Hello World!"');
+    $$('pre.coffeecode', '#A Very simple Hello World Template\nmyFirstTemplate = Template44 ($$) ->\n  $$ \'div#Hello.red\', {}, ->\n    $$ \'\', "Hello World!"');
     $$('p');
     $$('', "When this is run:");
     $$('p');
-    $$('pre', 'myFirstTemplate()');
+    $$('pre.coffeecode', 'myFirstTemplate()');
     $$('p');
     $$('', "Will Produce: ");
     $$('p');
-    return $$('pre', '<div id="Hello" class="red">\n  Hello World!\n</div>');
+    return $$('pre.htmlcode', '<div id="Hello" class="red">\n  Hello World!\n</div>');
   });
   docs.callsAndMethods = $$$(function($$) {
     $$('', 'In this section $$ is shorthand for the name of the parameter in the function passed to Template44 (');

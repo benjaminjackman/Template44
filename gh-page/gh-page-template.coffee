@@ -44,22 +44,21 @@ docs.myFirstTemplate = $$$ ($$) ->
     or classes with .some-css-class.
     '''
   $$ 'p'
-  $$ 'pre', 
+  $$ 'pre.coffeecode', 
     '''
     #A Very simple Hello World Template
-    #will create a method helloTemplate
     myFirstTemplate = Template44 ($$) ->
       $$ 'div#Hello.red', {}, ->
         $$ '', "Hello World!"
     '''
-  $$ 'p'
+  $$ 'p'    
   $$ '', "When this is run:"
-  $$ 'p'
-  $$ 'pre', 'myFirstTemplate()'
-  $$ 'p'
+  $$ 'p'  
+  $$ 'pre.coffeecode', 'myFirstTemplate()'
+  $$ 'p'  
   $$ '', "Will Produce: "
-  $$ 'p'
-  $$ 'pre', '''
+  $$ 'p'  
+  $$ 'pre.htmlcode', '''
   <div id="Hello" class="red">
     Hello World!
   </div>
