@@ -2,6 +2,9 @@
 #Notice here that I am setting $$$ equal to Template44
 #This is done solely to save keystrokes
 
+marginStrip = (txt) ->
+  
+
 $$$ = Template44
 
 body = $$$ ($$) ->
@@ -15,9 +18,10 @@ editBox = $$$ ($$) ->
 docs = $$$ ($$) ->
   $$ 'h2#Description', 'Template44 Documentation'
   $$ docs.description
-  $$ 'h3#Features', 'Features'
-  $$ docs.features
+  $$ 'h3#MyFirstTemplate', 'My First Template'
+  $$ docs.myFirstTemplate
   $$ 'h3#CallsAndMethods', '$$ Calls and Methods'
+  $$ docs.callsAndMethods
   
 docs.description = $$$ ($$) ->
   $$.txt '''
@@ -34,10 +38,23 @@ docs.description = $$$ ($$) ->
   $$ 'a', {href : 'http://benjaminjackman.github.com/Template44'}, 'Project Page'
   
   
-docs.features = $$$ ($$) ->
+docs.myFirstTemplate = $$$ ($$) ->
   $$.txt """
-    TODO RESUME HERE
+    Template44 elements can quickly be given ids with #some-id, 
+    or classes with .some-css-class.
     """
+  $$ "p"
+  $$ "code", 
+    '''
+    #A Very simple Hello World Template
+    #will create a method helloTemplate
+    helloTemplate = Template44 ($$) ->
+      $$ 'div#Hello.red', {}, ->
+        $$.txt "Hello World!"
+    '''
+  
+  
+docs.callsAndMethods = $$$ ($$) ->
   
 
 #Exporting    
