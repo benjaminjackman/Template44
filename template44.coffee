@@ -159,8 +159,20 @@ Template44 = (templateBuilder) ->
     r = createRecorder(stack, options, context)
     templateBuilder.apply(context, [r])
     stack
-
+    
+  # Returns either an array or a single element
   ret = (context, options) ->
+    root = build(context, options).rootElems()
+    l = root.length
+    if l == 1
+      render(root[0])
+    else if l == 0
+      null
+    else
+    _(build(context, options).rootElems()).map((x)-> render(x))      
+
+  # A way to ensure, with an exception, that only one element is returned
+  ret.element = (context, options) ->
     root = build(context, options).rootElems()
     l = root.length
     if l == 1
@@ -170,9 +182,11 @@ Template44 = (templateBuilder) ->
     else
       throw "Please use .array(context) Instead, as there was > 1 elements"
 
+  # Always returns an array of elements, even if there is only 1
   ret.array = (context, options) ->
     _(build(context, options).rootElems()).map((x)-> render(x))
 
+  # Helper that returns the stack without it being rendered
   ret.stack = (context, options) ->
     build(context, options).rootElems()
 
