@@ -7,7 +7,7 @@
   
   currently requires:
   underscore.js (though that's easy enough to remove)
-  */  var TStack, Template44, createRecorder, explodeAttrs, explodeTag, parseTag, render;
+  */  var TStack, Template44, createRecorder, explodeAttrs, explodeTag, parseTag, render, root;
   var __slice = Array.prototype.slice;
   TStack = (function() {
     function TStack() {
@@ -198,6 +198,6 @@
     };
     return ret;
   };
-  window.Template44 = Template44;
-  Cogent.addGlobal("Template44", Template44);
+  root = window || exports;
+  root.Template44 = Template44;
 }).call(this);

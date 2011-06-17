@@ -154,6 +154,7 @@ Template44 = (templateBuilder) ->
 
   ret
 
-window.Template44 = Template44
+root = window or exports
 
-Cogent.addGlobal "Template44", Template44
+root.Template44 = Template44
+
