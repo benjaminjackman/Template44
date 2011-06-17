@@ -14,7 +14,7 @@ Enter Template44
 
 Features
 --------
-Template44 elements can quickly be given ids with #id-name, or classes with .cls-name . 
+Template44 elements can quickly be given ids with #some-id, or classes with .some-css-class . 
 There is no need to close out tags
 
 The following code: 
@@ -37,6 +37,38 @@ Will Produce:
 
 Templates can have variables defined that can be set when the the template
 is used. This allows for a fill in the blanks styles and helps with reuse.
+
+
+$$ Calls and Methods
+--------------------
+In this section $$ is shorthand for the name of the parameter in the function passed to Template44
+(<code>myTemplate = Template44 ($$) -> ...</code>)
+
+
+<h3>Calls:<h3>
+<h4>$$(String, [Optional Attributes Object], [Optional Nested Call or Text])</h4>
+
+When the first parameter called on $$ is a String  
+then Template44 view it as an element tag and if  
+you included #ElementName .ClassName(s) then those  
+will be inserted as attributes in the element that  
+is created.
+
+If you wish to add additional attributes to the element 
+that is going to be created you can include an object 
+mapping attribute names to attribute values.
+
+If a String is passed as the last parameter to the $$ call it will treated as
+text that will be placed in the element with a call to 
+
+If instead you wish to nested
+
+<h4>$$(Function)</h4>
+
+<h4>$$(Object)</h4>
+
+
+
 
 
 
