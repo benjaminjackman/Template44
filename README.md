@@ -16,7 +16,7 @@ element (with #id-name) as well as tacking on multiple classes to that
 element (with .cls-name). The need to have to close out tags is handled
 automatically thanks to the significant whitespace rules of CoffeeScript.
 
-    menuTemplate = Template44 ($$) ->
+    helloTemplate = Template44 ($$) ->
       $$ 'div#Hello.red, {}, ->
         $$.txt "Hello World!"
 
@@ -24,6 +24,8 @@ Templates can have variables defined that can be set when the the template
 is used. This allows for a fill in the blanks styles and helps with reuse.
 
 
+
+...old...
 
 Examples
 --------
