@@ -6,7 +6,7 @@ body = Template44 ($$) ->
     $$ editBox
   
 editBox = Template44 ($$) ->
-  $$ 'textarea#EntryBox', {} ->
+  $$ 'textarea#EntryBox'
 
 #Exporting    
 GHPAGE = {}

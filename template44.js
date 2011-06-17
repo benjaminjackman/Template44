@@ -8,7 +8,7 @@
   currently requires:
   underscore.js (though that's easy enough to remove)
   */  var TStack, Template44, createRecorder, explodeAttrs, explodeTag, parseTag, render, root;
-  var __slice = Array.prototype.slice;
+  var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; }, __slice = Array.prototype.slice;
   TStack = (function() {
     function TStack() {
       this.currentNode = {
@@ -42,6 +42,23 @@
         value: elem
       });
     };
+    TStack.prototype.pushElems = function(elems) {
+      var doPush;
+      doPush = function(elem) {
+        return this.currentNode.children.push({
+          "type": "elem"
+        }, {
+          value: elem
+        });
+      };
+      if (_.isArray[elems]) {
+        return _(elems).foreach(__bind(function(elem) {
+          return doPush(elem);
+        }, this));
+      } else {
+        return doPush(elems);
+      }
+    };
     TStack.prototype.pop = function() {
       return this.currentNode = this.currentNode.parent;
     };
@@ -61,6 +78,8 @@
     if (node.type === "text") {
       el = document.createTextNode(node.value);
     } else if (node.type === "jQuery") {
+      el = node.value;
+    } else if (node.type === "elem") {
       el = node.value;
     } else if (node.type === "node") {
       el = document.createElement(node.tag);
@@ -122,38 +141,48 @@
     recorderFn = function() {
       var args, attrs, body, getAttrs, r, tag, _ref;
       args = 1 <= arguments.length ? __slice.call(arguments, 0) : [];
-      tag = explodeTag(args[0]);
-      getAttrs = function(attrObj) {
-        return _.extend({}, explodeAttrs(attrObj));
-      };
-      _ref = args.length === 2 ? _.isFunction(args[1]) || _.isString(args[1]) ? {
-        attrs: getAttrs({}),
-        body: args[1]
-      } : {
-        attrs: getAttrs(args[1])
-      } : args.length > 2 ? {
-        attrs: getAttrs(args[1]),
-        body: args[2]
-      } : {
-        attrs: getAttrs({})
-      }, attrs = _ref.attrs, body = _ref.body;
-      if (tag.cls != null) {
-        attrs["class"] = tag.cls;
-      }
-      if (tag.id != null) {
-        attrs.id = tag.id;
-      }
-      stack.push(tag.tag, attrs);
-      if (_.isFunction(body)) {
-        r = body.apply(context);
-        if (_.isString(r)) {
-          stack.pushText(r);
+      if (_.isString(args[0])) {
+        tag = explodeTag(args[0]);
+        getAttrs = function(attrObj) {
+          return _.extend({}, explodeAttrs(attrObj));
+        };
+        _ref = args.length === 2 ? _.isFunction(args[1]) || _.isString(args[1]) ? {
+          attrs: getAttrs({}),
+          body: args[1]
+        } : {
+          attrs: getAttrs(args[1])
+        } : args.length > 2 ? {
+          attrs: getAttrs(args[1]),
+          body: args[2]
+        } : {
+          attrs: getAttrs({})
+        }, attrs = _ref.attrs, body = _ref.body;
+        if (tag.cls != null) {
+          attrs["class"] = tag.cls;
         }
-      } else if (_.isString(body)) {
-        stack.pushText(body);
+        if (tag.id != null) {
+          attrs.id = tag.id;
+        }
+        stack.push(tag.tag, attrs);
+        if (_.isFunction(body)) {
+          r = body.apply(context);
+          if (_.isString(r)) {
+            stack.pushText(r);
+          }
+        } else if (_.isString(body)) {
+          stack.pushText(body);
+        }
+        stack.pop();
+        return null;
+      } else if (_.isFunction(args[0])) {
+        stack.pushElems(args[0](options, context));
+        stack.pop();
+        return null;
+      } else {
+        stack.pushElems(args[0]);
+        stack.pop();
+        return null;
       }
-      stack.pop();
-      return null;
     };
     recorder = _.bind(recorderFn, context);
     txtFn = function(s) {

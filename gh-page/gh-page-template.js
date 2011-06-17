@@ -1,9 +1,13 @@
 (function() {
-  var GHPAGE, body, root;
+  var GHPAGE, body, editBox, root;
   body = Template44(function($$) {
     return $$('h1', {}, function() {
-      return $$.txt("Hello World!");
+      $$.txt("Hello World!");
+      return $$(editBox);
     });
+  });
+  editBox = Template44(function($$) {
+    return $$('textarea#EntryBox');
   });
   GHPAGE = {};
   GHPAGE.body = body;
