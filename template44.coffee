@@ -33,7 +33,7 @@ class TStack
   pushJQuery : (elem) -> @currentNode.children.push({"type":"jQuery", value:elem})
   
   pushElems : (elems) ->
-    doPush = (elem) => @currentNode.children.push({"type":"elem"}, value: elem)
+    doPush = (elem) => @currentNode.children.push({"type":"elem", value: elem})
     if (_.isArray[elems])
       _(elems).foreach (elem) -> doPush(elem)
     else

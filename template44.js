@@ -46,8 +46,7 @@
       var doPush;
       doPush = __bind(function(elem) {
         return this.currentNode.children.push({
-          "type": "elem"
-        }, {
+          "type": "elem",
           value: elem
         });
       }, this);
