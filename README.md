@@ -48,10 +48,10 @@ In this section $$ is shorthand for the name of the parameter in the function pa
 <h3>Calls:<h3>
 <h4>$$(String, [Optional Attributes Object], [Optional Nested Call or Text])</h4>
 
-When the first parameter called on $$ is a String 
-then Template44 view it as an element tag and if 
-you included #ElementName .ClassName(s) then those 
-will be inserted as attributes in the element that 
+When the first parameter called on $$ is a String  
+then Template44 view it as an element tag and if  
+you included #ElementName .ClassName(s) then those  
+will be inserted as attributes in the element that  
 is created.
 
 If you wish to add additional attributes to the element 
