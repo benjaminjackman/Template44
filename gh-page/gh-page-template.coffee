@@ -35,7 +35,7 @@ docs.description = $$$ ($$) ->
   $$ 'p'
   $$ '', 'Enter Template44'
   $$ 'p'
-  $$ 'a', {href : 'http://benjaminjackman.github.com/Template44'}, 'Project Page'
+  $$ 'a', {href : 'https://github.com/benjaminjackman/Template44'}, 'Project Page on GitHub'
   
   
 docs.myFirstTemplate = $$$ ($$) ->
@@ -55,14 +55,14 @@ docs.myFirstTemplate = $$$ ($$) ->
   $$ 'p'
   $$ '', "When this is run:"
   $$ 'p'
-  $$ 'pre', 'myFirstTemplate'
+  $$ 'pre', 'myFirstTemplate()'
   $$ 'p'
   $$ '', "Will Produce: "
   $$ 'p'
   $$ 'pre', '''
   <div id="Hello" class="red">
     Hello World!
-  </div>  
+  </div>
   '''
   
 docs.callsAndMethods = $$$ ($$) ->

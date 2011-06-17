@@ -25,8 +25,8 @@
     $$('', 'Enter Template44');
     $$('p');
     return $$('a', {
-      href: 'http://benjaminjackman.github.com/Template44'
-    }, 'Project Page');
+      href: 'https://github.com/benjaminjackman/Template44'
+    }, 'Project Page on GitHub');
   });
   docs.myFirstTemplate = $$$(function($$) {
     $$('', 'Template44 elements can quickly be given ids with #some-id, \nor classes with .some-css-class.');
@@ -35,11 +35,11 @@
     $$('p');
     $$('', "When this is run:");
     $$('p');
-    $$('pre', 'myFirstTemplate');
+    $$('pre', 'myFirstTemplate()');
     $$('p');
     $$('', "Will Produce: ");
     $$('p');
-    return $$('pre', '<div id="Hello" class="red">\n  Hello World!\n</div>  ');
+    return $$('pre', '<div id="Hello" class="red">\n  Hello World!\n</div>');
   });
   docs.callsAndMethods = $$$(function($$) {
     $$('', 'In this section $$ is shorthand for the name of the parameter in the function passed to Template44 (');
