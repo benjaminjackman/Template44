@@ -31,6 +31,14 @@ class TStack
   pushText : (text) -> @currentNode.children.push({"type":"text", value:text})
 
   pushJQuery : (elem) -> @currentNode.children.push({"type":"jQuery", value:elem})
+  
+  pushElems : (elems) ->
+    doPush = (elem) -> @currentNode.children.push({"type":"elem"}, value: elem)
+    if (_.isArray[elems])
+      _(elems).foreach (elem) => doPush(elem)
+    else
+      doPush(elems)
+      
 
   pop : () -> @currentNode = @currentNode.parent
 
@@ -45,6 +53,8 @@ render = (node, parentElement) ->
   if (node.type == "text")
     el = document.createTextNode(node.value)
   else if (node.type == "jQuery")
+    el = node.value
+  else if (node.type == "elem")
     el = node.value
   else if (node.type == "node")
     el = document.createElement(node.tag)
@@ -94,31 +104,47 @@ createRecorder = (stack, options, context) ->
   # Template44 ($$) ->
   #todo make attrs optional
   recorderFn = (args...) ->
-    tag = explodeTag(args[0])
-    getAttrs = (attrObj) -> _.extend({}, explodeAttrs(attrObj))
-    {attrs,body} =
-      if args.length == 2
-        if (_.isFunction(args[1]) or _.isString(args[1]))
-          {attrs:getAttrs({}),body:args[1]}
+    if _.isString(args[0])
+      #Standard string case
+      tag = explodeTag(args[0])
+      getAttrs = (attrObj) -> _.extend({}, explodeAttrs(attrObj))
+      {attrs,body} =
+        if args.length == 2
+          if (_.isFunction(args[1]) or _.isString(args[1]))
+            {attrs:getAttrs({}),body:args[1]}
+          else
+            {attrs:getAttrs(args[1])}
+        else if args.length > 2
+          {attrs:getAttrs(args[1]),body:args[2]}
         else
-          {attrs:getAttrs(args[1])}
-      else if args.length > 2
-        {attrs:getAttrs(args[1]),body:args[2]}
-      else
-        {attrs:getAttrs({})}
-    if tag.cls? then attrs["class"] = tag.cls
-    if tag.id? then attrs.id = tag.id 
-    stack.push(tag.tag, attrs)
+          {attrs:getAttrs({})}
+      if tag.cls? then attrs["class"] = tag.cls
+      if tag.id? then attrs.id = tag.id 
+      stack.push(tag.tag, attrs)
 
-    if (_.isFunction(body))
-      r = body.apply(context)
-      if (_.isString(r))
-        stack.pushText(r)
-    else if (_.isString(body))
-      stack.pushText(body)
-    
-    stack.pop()
-    null
+      if (_.isFunction(body))
+        r = body.apply(context)
+        if (_.isString(r))
+          stack.pushText(r)
+      else if (_.isString(body))
+        stack.pushText(body)
+      stack.pop()
+      null
+    else if _.isFunction(args[0])
+      #in this case assume this is nested template44
+      #since it was not 'applied' we need to pass in the context and options
+      #used by the parent then get the node(s) produced and append it/them
+      stack.pushElems(args[0](options, context))
+      stack.pop()
+      null
+    else
+      #in this case we are going to assume that we have
+      #an applied nested template44 that we are going to need to insert
+      #in this case the result should just be directly appendable at this location
+      stack.pushElems(args[0])
+      stack.pop()
+      null
+      
 
   #recorder.raw = (s) -> stack.pushText(s)
   recorder = _.bind(recorderFn, context)
