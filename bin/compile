@@ -1,3 +1,5 @@
 #!/bin/sh
 
-coffee
+COFFEE=./lib/coffee/default/bin/coffee
+
+$COFFEE Template44.js
