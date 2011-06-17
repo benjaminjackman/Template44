@@ -5,7 +5,7 @@ MASTER=$HOME/dev/Template44/master/
 GHPAGE=$HOME/dev/Template44/gh-page/
 
 cd $MASTER
-$COFFEE node-renderer.coffee > $GHPAGE/index.html
+bin/render-pages
 
 cd $GHPAGE
 git add .

@@ -1,0 +1,10 @@
+#!/bin/sh
+
+
+MASTER=$HOME/dev/Template44/master/
+GHPAGE=$HOME/dev/Template44/gh-page/
+COFFEE=$MASTER/lib/coffee/default/bin/coffee
+
+cd $MASTER
+$COFFEE gh-pages/node-renderer.coffee > $GHPAGE/index.html
+
