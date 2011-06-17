@@ -20,24 +20,24 @@
     return $$(docs.callsAndMethods);
   });
   docs.description = $$$(function($$) {
-    $$.txt('Template44 aims to make writing HTML code in CoffeScript a lot easier.\nFor better or worse, a lot of coders will embed html within herestrings \n(the multi-line strings that the language provides). \nWhile nice for getting things off the ground, html is pretty verbose, having\nto write every tag twice, and it has no support for factoring out common patterns\nwith shorter forms. ');
+    $$('', 'Template44 aims to make writing HTML code in CoffeScript a lot easier.\nFor better or worse, a lot of coders will embed html within herestrings \n(the multi-line strings that the language provides). \nWhile nice for getting things off the ground, html is pretty verbose, having\nto write every tag twice, and it has no support for factoring out common patterns\nwith shorter forms. ');
     $$('p');
-    $$.txt('Enter Template44');
+    $$('', 'Enter Template44');
     $$('p');
     return $$('a', {
       href: 'http://benjaminjackman.github.com/Template44'
     }, 'Project Page');
   });
   docs.myFirstTemplate = $$$(function($$) {
-    $$.txt('Template44 elements can quickly be given ids with #some-id, \nor classes with .some-css-class.');
+    $$('', 'Template44 elements can quickly be given ids with #some-id, \nor classes with .some-css-class.');
     $$('p');
-    $$('pre', '#A Very simple Hello World Template\n#will create a method helloTemplate\nmyFirstTemplate = Template44 ($$) ->\n  $$ \'div#Hello.red\', {}, ->\n    $$.txt "Hello World!"');
+    $$('pre', '#A Very simple Hello World Template\n#will create a method helloTemplate\nmyFirstTemplate = Template44 ($$) ->\n  $$ \'div#Hello.red\', {}, ->\n    $$ \'\', "Hello World!"');
     $$('p');
-    $$.txt("When this is run:");
+    $$('', "When this is run:");
     $$('p');
     $$('pre', 'myFirstTemplate');
     $$('p');
-    $$.txt("Will Produce: ");
+    $$('', "Will Produce: ");
     $$('p');
     return $$('pre', '<div id="Hello" class="red">\n  Hello World!\n</div>  ');
   });

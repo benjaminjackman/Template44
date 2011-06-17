@@ -24,7 +24,7 @@ docs = $$$ ($$) ->
   $$ docs.callsAndMethods
   
 docs.description = $$$ ($$) ->
-  $$.txt '''
+  $$ '', '''
     Template44 aims to make writing HTML code in CoffeScript a lot easier.
     For better or worse, a lot of coders will embed html within herestrings 
     (the multi-line strings that the language provides). 
@@ -33,13 +33,13 @@ docs.description = $$$ ($$) ->
     with shorter forms. 
     '''
   $$ 'p'
-  $$.txt 'Enter Template44'
+  $$ '', 'Enter Template44'
   $$ 'p'
   $$ 'a', {href : 'http://benjaminjackman.github.com/Template44'}, 'Project Page'
   
   
 docs.myFirstTemplate = $$$ ($$) ->
-  $$.txt '''
+  $$ '', '''
     Template44 elements can quickly be given ids with #some-id, 
     or classes with .some-css-class.
     '''
@@ -50,14 +50,14 @@ docs.myFirstTemplate = $$$ ($$) ->
     #will create a method helloTemplate
     myFirstTemplate = Template44 ($$) ->
       $$ 'div#Hello.red', {}, ->
-        $$.txt "Hello World!"
+        $$ '', "Hello World!"
     '''
   $$ 'p'
-  $$.txt "When this is run:"
+  $$ '', "When this is run:"
   $$ 'p'
   $$ 'pre', 'myFirstTemplate'
   $$ 'p'
-  $$.txt "Will Produce: "
+  $$ '', "Will Produce: "
   $$ 'p'
   $$ 'pre', '''
   <div id="Hello" class="red">
