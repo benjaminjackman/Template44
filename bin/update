@@ -1,0 +1,7 @@
+#!/bin/sh
+
+bin/compile
+git add .
+git commit -a -m "compile push"
+git push origin master
+
