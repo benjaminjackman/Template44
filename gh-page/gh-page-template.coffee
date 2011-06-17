@@ -19,7 +19,7 @@ docs = $$$ ($$) ->
   $$ docs.features
   $$ 'h2#CallsAndMethods', '$$ Calls and Methods'
   
-docs.description = $$$($$) ->
+docs.description = $$$ ($$) ->
   $$.txt '''
     Template44 aims to make writing HTML code in CoffeScript a lot easier.
     For better or worse, a lot of coders will embed html within herestrings 

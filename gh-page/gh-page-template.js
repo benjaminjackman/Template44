@@ -17,7 +17,7 @@
     $$(docs.features);
     return $$('h2#CallsAndMethods', '$$ Calls and Methods');
   });
-  docs.description = $$$($$)(function() {
+  docs.description = $$$(function($$) {
     $$.txt('Template44 aims to make writing HTML code in CoffeScript a lot easier.\nFor better or worse, a lot of coders will embed html within herestrings \n(the multi-line strings that the language provides). \nWhile nice for getting things off the ground, html is pretty verbose, having\nto write every tag twice, and it has no support for factoring out common patterns\nwith shorter forms. ');
     $$('p');
     $$.txt('Enter Template44');
