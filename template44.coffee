@@ -15,12 +15,12 @@ template = Template44 ($$) ->
 
 console.log(template({a : 5, b : "SO AWESOME"}),)
 >
-  <div value=​"5" class=​"indicator-sel">​
-    <h1 class=​"red" id=​"the-h1">​hello world​</h1>​
+  <div value="5" class="indicator-sel">
+    <h1 class="red" id="the-h1">hello world</h1>
     "this is some text"
-    <br>​
-    <p>​hi mom i'm SO AWESOME​</p>​
-  </div>​
+    <br>
+    <p>hi mom i'm SO AWESOME</p>
+  </div>
 
 bodyTempl = Template44 ($$) ->
   $$ 'body', {}, () ->
@@ -35,12 +35,7 @@ bodyTempl = Template44 ($$) ->
     <div id="content"></div>
     <h2 class="page-header">Template Co. Unit Tests</h2>
   </body>
-  
-  <body>​
-    <div id=​"main-nav">​</div>​
-    <div id=​"content">​</div>​
-    <h2 class=​"page-header">​Cogent Unit Tests​</h2>​
-  </body>​
+
 ###
 
 class TStack
