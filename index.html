@@ -13,8 +13,8 @@
 <script type="text/coffeescript">
   $(document).ready () ->
     bod = GHPAGE.body()
-    if (_.isArray(body))
-      _(bod).each (el) -> body.append(el)
+    if (_.isArray(bod))
+      _(bod).each (el) -> $("body").append(el)
     else
       $("body").append(bod)
 </script>
