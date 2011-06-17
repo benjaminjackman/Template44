@@ -35,7 +35,7 @@ class TStack
   pushElems : (elems) ->
     doPush = (elem) => @currentNode.children.push({"type":"elem", value: elem})
     if (_.isArray[elems])
-      _(elems).foreach (elem) -> doPush(elem)
+      _(elems).each (elem) -> doPush(elem)
     else
       doPush(elems)
       
@@ -66,7 +66,7 @@ render = (node, parentElement) ->
     if (node.type == "jQuery")
       el.appendTo(parentElement)
     else if (_.isArray(el))
-      _(el).foreach (el) -> parentElement.appendChild(el)
+      _(el).each (el) -> parentElement.appendChild(el)
     else
       parentElement.appendChild(el)
 

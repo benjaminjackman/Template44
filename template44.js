@@ -51,7 +51,7 @@
         });
       }, this);
       if (_.isArray[elems]) {
-        return _(elems).foreach(function(elem) {
+        return _(elems).each(function(elem) {
           return doPush(elem);
         });
       } else {
@@ -97,7 +97,7 @@
       if (node.type === "jQuery") {
         el.appendTo(parentElement);
       } else if (_.isArray(el)) {
-        _(el).foreach(function(el) {
+        _(el).each(function(el) {
           return parentElement.appendChild(el);
         });
       } else {
