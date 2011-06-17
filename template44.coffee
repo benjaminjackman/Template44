@@ -132,8 +132,8 @@ createRecorder = (stack, options, context) ->
         stack.pushText(body)
       stack.pop()
       null
-    else if _.isString(args[0]) and args[0] is ''
-      recorderFn.txt(args)
+    else if _.isString(args[0]) and args[0] is '' and args.length is 2
+      stack.pushText(args[1])
     else if _.isFunction(args[0])
       #in this case assume this is nested template44
       #since it was not 'applied' we need to pass in the context and options

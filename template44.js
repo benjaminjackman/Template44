@@ -177,8 +177,8 @@
         }
         stack.pop();
         return null;
-      } else if (_.isString(args[0]) && args[0] === '') {
-        return recorderFn.txt(args);
+      } else if (_.isString(args[0]) && args[0] === '' && args.length === 2) {
+        return stack.pushText(args[1]);
       } else if (_.isFunction(args[0])) {
         stack.pushElems(args[0](context, options));
         return null;
