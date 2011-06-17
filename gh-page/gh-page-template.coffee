@@ -17,21 +17,21 @@ docs = $$$ ($$) ->
   $$ docs.description
   $$ 'h2#Features', 'Features'
   $$ docs.features
-  $$ 'h2#CallsAndMethods' '$$ Calls and Methods'
+  $$ 'h2#CallsAndMethods', '$$ Calls and Methods'
   
 docs.description = $$$($$) ->
-  $$.txt """
+  $$.txt '''
     Template44 aims to make writing HTML code in CoffeScript a lot easier.
     For better or worse, a lot of coders will embed html within herestrings 
     (the multi-line strings that the language provides). 
     While nice for getting things off the ground, html is pretty verbose, having
     to write every tag twice, and it has no support for factoring out common patterns
     with shorter forms. 
-    """
+    '''
   $$ 'p'
-  $$.txt "Enter Template44"
+  $$.txt 'Enter Template44'
   $$ 'p'
-  $$ 'a', {href : "http://benjaminjackman.github.com/Template44"}, "Project Page"
+  $$ 'a', {href : 'http://benjaminjackman.github.com/Template44'}, 'Project Page'
   
   
 docs.features = $$$ ($$) ->

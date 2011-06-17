@@ -207,6 +207,21 @@
       root = build(context, options).rootElems();
       l = root.length;
       if (l === 1) {
+        render(root[0]);
+      } else if (l === 0) {
+        null;
+      } else {
+
+      }
+      return _(build(context, options).rootElems()).map(function(x) {
+        return render(x);
+      });
+    };
+    ret.element = function(context, options) {
+      var l, root;
+      root = build(context, options).rootElems();
+      l = root.length;
+      if (l === 1) {
         return render(root[0]);
       } else if (l === 0) {
         return null;
