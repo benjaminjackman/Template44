@@ -10,7 +10,7 @@ with shorter forms.
 
 Enter Template44
 
-[Project Page](https://benjaminjackman.github.com/Template44)
+[Project Page](http://benjaminjackman.github.com/Template44)
 
 Features
 --------
