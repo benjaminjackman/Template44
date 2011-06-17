@@ -106,7 +106,7 @@ createRecorder = (stack, options, context) ->
   # Template44 ($$) ->
   #todo make attrs optional
   recorderFn = (args...) ->
-    if _.isString(args[0]) and args[0] not ''
+    if _.isString(args[0]) and args[0] isnt ''
       #Standard string case
       tag = explodeTag(args[0])
       getAttrs = (attrObj) -> _.extend({}, explodeAttrs(attrObj))
