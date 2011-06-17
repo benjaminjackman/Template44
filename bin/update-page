@@ -1,0 +1,14 @@
+#!/bin/sh
+
+COFFEE=lib/coffee/default/bin/coffee
+MASTER=$HOME/dev/Template44/master/
+GHPAGE=$HOME/dev/Template44/ghpage/
+
+cd $MASTER
+$COFFEE node-renderer.coffee > $GHPAGE/index.html
+
+cd $GHPAGE
+git add .
+git commit -a -m "updating github Template44 project page"
+git push origin HEAD
+
